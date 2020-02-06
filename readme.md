@@ -1,4 +1,6 @@
-# Notion Blog
+# Zamboni.dev blog
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2abb9cad-3572-4280-8c77-448d6d5e7912/deploy-status)](https://app.netlify.com/sites/zambonidev/deploys)
 
 This is an example Next.js project that shows Next.js' upcoming SSG (static-site generation) support using Notion's **private** API for a backend.
 
@@ -77,6 +79,7 @@ To run the project locally you need to follow steps 1 and 2 of [deploying](#depl
 2. Expose `NOTION_TOKEN` and `BLOG_INDEX_ID` in your environment `export NOTION_TOKEN='<your-token>'`and `export BLOG_INDEX_ID='<your-blog-index-id>'` or `set NOTION_TOKEN="<your-token>" && set BLOG_INDEX_ID="<your-blog-index-id>"` for Windows
 3. Run next in development mode `yarn dev`
 4. Build and run in production mode `yarn build && yarn start`
+I made some modification to enable this project to be deployable to **Netlify**
 
 ## Credits
 
