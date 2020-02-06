@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <feed xmlns="http://www.w3.org/2005/Atom">
+    <title>My Blog</title>
+    <subtitle>Blog</subtitle>
+    <link href="/atom" rel="self" type="application/rss+xml"/>
+    <link href="/" />
+    <updated>2020-02-06T21:48:44.742Z</updated>
+    <id>My Notion Blog</id>
+    <entry>
+      <id>/blog/hello-word</id>
+      <title>Hello world</title>
+      <link href="/blog/hello-word"/>
+      <updated>2020-02-06T02:00:00.597Z</updated>
+      <content type="xhtml">
+        <div xmlns="http://www.w3.org/1999/xhtml">
+          
+          <p class="more">
+            <a href="/blog/hello-word">Read more</a>
+          </p>
+        </div>
+      </content>
+      <author><name>Giovani Zamboni</name></author>
+    </entry>
+  </feed>
