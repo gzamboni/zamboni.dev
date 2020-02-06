@@ -3,33 +3,71 @@ import Header from '../components/header'
 import ExtLink from '../components/ext-link'
 import Features from '../components/features'
 import GitHub from '../components/svgs/github'
+import Twitter from '../components/svgs/twitter'
+import Envelope from '../components/svgs/envelope'
+import LinkedIn from '../components/svgs/linkedin'
 import sharedStyles from '../styles/shared.module.css'
+import contactStyles from '../styles/contact.module.css'
+
+const contacts = [
+  {
+    Comp: Twitter,
+    alt: 'twitter icon',
+    link: 'https://twitter.com/gzamboni',
+  },
+  {
+    Comp: GitHub,
+    alt: 'github icon',
+    link: 'https://github.com/gzamboni',
+  },
+  {
+    Comp: LinkedIn,
+    alt: 'linkedin icon',
+    link: 'https://www.linkedin.com/in/zamboni/',
+  },
+  {
+    Comp: Envelope,
+    alt: 'envelope icon',
+    link: 'mailto:g@zamboni.dev?subject=Hi!',
+  },
+]
 
 export default () => (
   <>
     <Header titlePre="Home" />
     <div className={sharedStyles.layout}>
       <img
-        src="/zeit-and-notion.png"
-        height="85"
-        width="250"
-        alt="ZEIT + Notion"
+        className={sharedStyles.avatar}
+        src="/avatar.png"
+        width="200"
+        alt="Zamboni' Photo"
       />
-      <h1>My Notion Blog</h1>
+      <h1>Howdy! I am Zamboni!</h1>
       <h2>
-        Blazing Fast Notion Blog with Next.js'{' '}
-        <ExtLink
-          href="https://github.com/zeit/next.js/issues/9524"
+        I am a developer/SRE from Brazil 🇧🇷 that solve problems for tech
+        companies abroad, remotely.
+        {/* <ExtLink
+          href="https://github.com/gzamboni"
           className="dotted"
           style={{ color: 'inherit' }}
         >
-          SSG
-        </ExtLink>
+          remotely
+        </ExtLink> */}
       </h2>
 
-      <Features />
+      <br />
 
-      <div className="explanation">
+      <div className={contactStyles.links}>
+        {contacts.map(({ Comp, link, alt }) => {
+          return (
+            <ExtLink key={link} href={link} aria-label={alt}>
+              <Comp height={24} />
+            </ExtLink>
+          )
+        })}
+      </div>
+
+      {/* <div className="explanation">
         <p>
           This is a statically generated{' '}
           <ExtLink href="https://nextjs.org">Next.js</ExtLink> site with a{' '}
@@ -61,7 +99,7 @@ export default () => (
           After finding your token and your blog's page id you should be good to
           go!
         </p>
-      </div>
+      </div> */}
     </div>
   </>
 )
