@@ -37,23 +37,37 @@ export default () => (
     <Header titlePre="Home" />
     <div className={sharedStyles.layout}>
       <img
-        className={contactStyles.avatar}
+        className={contactStyles.avatarFront}
         src="/avatar.png"
         width="200"
         alt="Zamboni's Photo"
       />
       <h1>Howdy! Giovani Zamboni here!</h1>
       <h2>
-        I am a developer/SRE from Brazil 🇧🇷 that solve problems for tech
-        companies abroad, remotely.
-        {/* <ExtLink
-          href="https://github.com/gzamboni"
-          className="dotted"
-          style={{ color: 'inherit' }}
-        >
-          remotely
-        </ExtLink> */}
+        I am a developer/SRE from Brazil 🇧🇷
+        <br />
+        that solve problems for tech companies abroad, remotely.
       </h2>
+
+      <div className="explanation">
+        <p>
+          I am a mentor of the{' '}
+          <ExtLink href="https://www.startupsc.com.br/">StartupSC</ExtLink>{' '}
+          program at Sebrae and co-founded{' '}
+          <ExtLink href="https://www.jetbov.com">JetBov</ExtLink>, named as one
+          of the top startups in Brazil by{' '}
+          <ExtLink href="https://revistapegn.globo.com/Startups/noticia/2019/05/100-startups-brasileiras-para-voce-ficar-de-olho.html">
+            Época Negócios magazine
+          </ExtLink>
+          . In addition, he worked for prominent companies such as{' '}
+          <ExtLink href="https://www.totvs.com">Datasul (agora Totvs)</ExtLink>,{' '}
+          <ExtLink href="https://www.neogrid.com">NeoGrid</ExtLink> and{' '}
+          <ExtLink href="http://www.contaazul.com">ContaAzul</ExtLink>. He
+          currently helps computers assist people in their daily activities
+          through Artificial Intelligence on the{' '}
+          <ExtLink href="https://www.totvslabs.com">TotvsLabs</ExtLink> team.
+        </p>
+      </div>
 
       <br />
 
@@ -66,40 +80,6 @@ export default () => (
           )
         })}
       </div>
-
-      {/* <div className="explanation">
-        <p>
-          This is a statically generated{' '}
-          <ExtLink href="https://nextjs.org">Next.js</ExtLink> site with a{' '}
-          <ExtLink href="https://notion.so">Notion</ExtLink> powered blog that
-          is deployed with <ExtLink href="https://zeit.co">ZEIT</ExtLink>. It
-          leverages some upcoming features in Next.js like{' '}
-          <ExtLink href="https://github.com/zeit/next.js/issues/9524">
-            SSG support
-          </ExtLink>{' '}
-          and{' '}
-          <ExtLink href="https://github.com/zeit/next.js/issues/8626">
-            built-in CSS support
-          </ExtLink>{' '}
-          which allow us to achieve all of the benefits listed above including
-          blazing fast speeds, great local editing experience, and always being
-          available!
-        </p>
-
-        <p>
-          Get started by creating a new page in Notion and clicking the deploy
-          button below. After you supply your token and the blog index id (the
-          page's id in Notion) we will automatically create the table for you!
-          See{' '}
-          <ExtLink href="https://github.com/ijjk/notion-blog#getting-blog-index-and-token">
-            here in the readme
-          </ExtLink>{' '}
-          for finding the new page's id. To get your token from Notion, login
-          and look for a cookie under www.notion.so with the name `token_v2`.
-          After finding your token and your blog's page id you should be good to
-          go!
-        </p>
-      </div> */}
     </div>
   </>
 )

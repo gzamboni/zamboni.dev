@@ -25,6 +25,16 @@
 
 .avatar img {
   height: 120px;
+  box-shadow: #707880 0px 0px 5px;
+  border-radius: 100%;
+}
+
+.avatarFront {
+  display: block;
+  text-align: center;
+  margin: 1rem 0;
+  box-shadow: #707880 0px 0px 5px;
+  border-radius: 100%;
 }
 
 .name {
