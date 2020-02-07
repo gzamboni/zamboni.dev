@@ -1,12 +1,20 @@
 import '../styles/global.css'
-import ExtLink from '../components/ext-link'
+import App from 'next/app'
+import React from 'react'
+import TagManager from 'react-gtm-module'
 
-export default ({ Component, pageProps }) => (
-  <>
-    <Component {...pageProps} />
+const tagManagerArgs = {
+  id: 'GTM-WMXJ59C',
+}
 
-    <footer>
-      <span>Copyright 2020-2030 by Giovani Zamboni, all rights reserved</span>
-    </footer>
-  </>
-)
+class MyApp extends App {
+  componentDidMount() {
+    TagManager.initialize(tagManagerArgs)
+  }
+  render() {
+    const { Component, pageProps } = this.props
+    return <Component {...pageProps} />
+  }
+}
+
+export default MyApp
