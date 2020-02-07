@@ -98,12 +98,12 @@ export default () => (
     <Header titlePre="Home" />
     <div className={sharedStyles.layout}>
       <img
-        className={sharedStyles.avatar}
+        className={contactStyles.avatar}
         src="/avatar.png"
         width="200"
-        alt="Zamboni' Photo"
+        alt="Zamboni's Photo"
       />
-      <h1>Howdy! I am Zamboni!</h1>
+      <h1>Howdy! Giovani Zamboni here!</h1>
       <h2>
         I am a developer/SRE from Brazil 🇧🇷 that solve problems for tech
         companies abroad, remotely.

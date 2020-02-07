@@ -1,21 +1,20 @@
 import '../styles/global.css'
-import 'katex/dist/katex.css'
-import Footer from '../components/footer'
+import App from 'next/app'
+import React from 'react'
+import TagManager from 'react-gtm-module'
 
-export default function MyApp({ Component, pageProps }) {
-  return (
-    <>
-      <Component {...pageProps} />
-      <Footer />
-    </>
-  )
+const tagManagerArgs = {
+  id: 'GTM-WMXJ59C',
 }
-// export default ({ Component, pageProps }) => (
-//   <>
-//     <Component {...pageProps} />
 
-//     <footer>
-//       <span>Copyright 2020-2030 by Giovani Zamboni, all rights reserved</span>
-//     </footer>
-//   </>
-// )
+class MyApp extends App {
+  componentDidMount() {
+    TagManager.initialize(tagManagerArgs)
+  }
+  render() {
+    const { Component, pageProps } = this.props
+    return <Component {...pageProps} />
+  }
+}
+
+export default MyApp
