@@ -5,7 +5,7 @@ import TagManager from 'react-gtm-module'
 
 class MyApp extends App {
   componentDidMount() {
-    TagManager.initialize({ id: 'GTM-WMXJ59C' })
+    TagManager.initialize({ gtmId: 'GTM-WMXJ59C' })
   }
   render() {
     const { Component, pageProps } = this.props
