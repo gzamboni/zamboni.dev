@@ -3,13 +3,9 @@ import App from 'next/app'
 import React from 'react'
 import TagManager from 'react-gtm-module'
 
-const tagManagerArgs = {
-  id: 'GTM-WMXJ59C',
-}
-
 class MyApp extends App {
   componentDidMount() {
-    TagManager.initialize(tagManagerArgs)
+    TagManager.initialize({ id: 'GTM-WMXJ59C' })
   }
   render() {
     const { Component, pageProps } = this.props
