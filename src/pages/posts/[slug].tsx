@@ -13,6 +13,8 @@ import getBlogIndex from '../../lib/notion/getBlogIndex'
 import getNotionUsers from '../../lib/notion/getNotionUsers'
 import { getBlogLink, getDateStr } from '../../lib/blog-helpers'
 import ExtLink from '../../components/ext-link'
+import YouTube from 'react-youtube'
+import sharedStyles from '../../styles/shared.module.css'
 
 // Get the data for each blog post
 export async function getStaticProps({ params: { slug }, preview }) {
@@ -250,6 +252,16 @@ const RenderPost = ({ post, redirect, preview }) => {
             case 'image':
             case 'video':
             case 'embed': {
+              const source = properties.source[0][0]
+              if (
+                source.indexOf('youtube') != -1 ||
+                source.indexOf('youtu.be') != -1
+              ) {
+                // TODO: extremely fragile
+                toRender.push(<YouTube videoId={source.split('/')[3]} />)
+                break
+              }
+
               const { format = {} } = value
               const {
                 block_width,
@@ -332,6 +344,13 @@ const RenderPost = ({ post, redirect, preview }) => {
                   child
                 )
               )
+              if (properties.caption) {
+                toRender.push(
+                  <div className={sharedStyles.caption}>
+                    {textBlock(properties.caption, false, id)}
+                  </div>
+                )
+              }
               break
             }
             case 'header':
