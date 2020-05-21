@@ -42,12 +42,10 @@ if (!BLOG_INDEX_ID) {
 }
 
 module.exports = {
-  serverRuntimeConfig: {
-    // Will only be available on the server side
-    notionToken: process.env.NOTION_TOKEN, // Pass through env variables,
-    secondSecret: process.env.BLOG_INDEX_ID, // Pass through env variables
+  // target: 'experimental-serverless-trace',
+  publicRuntimeConfig: {
+    NOTION_TOKEN: process.env.NOTION_TOKEN,
   },
-  publicRuntimeConfig: {},
   webpack(cfg, { dev, isServer }) {
     // only compile build-rss in production server build
     if (dev || !isServer) return cfg
