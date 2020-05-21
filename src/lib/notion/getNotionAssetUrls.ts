@@ -2,8 +2,6 @@ import fetch from 'node-fetch'
 import { getError } from './rpc'
 import { NextApiResponse } from 'next'
 import { NOTION_TOKEN, API_ENDPOINT } from './server-constants'
-import getConfig from 'next/config'
-const { publicRuntimeConfig } = getConfig()
 
 export default async function getNotionAsset(
   res: NextApiResponse,
@@ -16,7 +14,7 @@ export default async function getNotionAsset(
   const assetRes = await fetch(requestURL, {
     method: 'POST',
     headers: {
-      cookie: `token_v2=${publicRuntimeConfig.NOTION_TOKEN}`,
+      cookie: `token_v2=${NOTION_TOKEN}`,
       'content-type': 'application/json',
     },
     body: JSON.stringify({
