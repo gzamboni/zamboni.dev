@@ -2,6 +2,7 @@ import fetch from 'node-fetch'
 import { getError } from './rpc'
 import { NextApiResponse } from 'next'
 import { NOTION_TOKEN, API_ENDPOINT } from './server-constants'
+import getConfig from 'next/config'
 
 export default async function getNotionAsset(
   res: NextApiResponse,
@@ -10,11 +11,12 @@ export default async function getNotionAsset(
 ): Promise<{
   signedUrls: string[]
 }> {
+  const { serverRuntimeConfig, publicRuntimeConfig } = getConfig()
   const requestURL = `${API_ENDPOINT}/getSignedFileUrls`
   const assetRes = await fetch(requestURL, {
     method: 'POST',
     headers: {
-      cookie: `token_v2=${NOTION_TOKEN}`,
+      cookie: `token_v2=${serverRuntimeConfig.notionToken}`,
       'content-type': 'application/json',
     },
     body: JSON.stringify({

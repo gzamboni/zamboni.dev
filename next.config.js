@@ -42,8 +42,12 @@ if (!BLOG_INDEX_ID) {
 }
 
 module.exports = {
-  target: 'experimental-serverless-trace',
-
+  serverRuntimeConfig: {
+    // Will only be available on the server side
+    notionToken: process.env.NOTION_TOKEN, // Pass through env variables,
+    secondSecret: process.env.BLOG_INDEX_ID, // Pass through env variables
+  },
+  publicRuntimeConfig: {},
   webpack(cfg, { dev, isServer }) {
     // only compile build-rss in production server build
     if (dev || !isServer) return cfg
@@ -53,7 +57,9 @@ module.exports = {
 
     const originalEntry = cfg.entry
     cfg.entry = async () => {
-      const entries = { ...(await originalEntry()) }
+      const entries = {
+        ...(await originalEntry()),
+      }
       entries['./scripts/build-rss.js'] = './src/lib/build-rss.ts'
       return entries
     }
