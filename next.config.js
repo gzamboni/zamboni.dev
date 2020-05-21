@@ -42,10 +42,8 @@ if (!BLOG_INDEX_ID) {
 }
 
 module.exports = {
-  // target: 'experimental-serverless-trace',
-  publicRuntimeConfig: {
-    NOTION_TOKEN: process.env.NOTION_TOKEN,
-  },
+  target: 'experimental-serverless-trace',
+
   webpack(cfg, { dev, isServer }) {
     // only compile build-rss in production server build
     if (dev || !isServer) return cfg
