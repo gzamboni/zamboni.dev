@@ -316,20 +316,18 @@ const RenderPost = ({ post, redirect, preview }) => {
               }
 
               toRender.push(
-                useWrapper ? (
-                  <div
-                    style={{
-                      paddingTop: `${Math.round(block_aspect_ratio * 100)}%`,
-                      position: 'relative',
-                    }}
-                    className="asset-wrapper"
-                    key={id}
-                  >
-                    {child}
-                  </div>
-                ) : (
-                  child
-                )
+                <Comp
+                  key={id}
+                  src={`/.netlify/functions/assets?assetUrl=${encodeURIComponent(
+                    format.display_source as any
+                  )}&blockId=${id}`}
+                  controls={!isImage}
+                  alt={isImage ? 'An image from Notion' : undefined}
+                  loop={!isImage}
+                  muted={!isImage}
+                  autoPlay={!isImage}
+                  style={{ width }}
+                />
               )
               break
             }
