@@ -6,6 +6,7 @@ exports.handler = function(event, context, callback) {
   const API_ENDPOINT = 'https://www.notion.so/api/v3'
   const NOTION_TOKEN = process.env.NOTION_TOKEN
   const requestURL = `${API_ENDPOINT}/getSignedFileUrls`
+  const params = querystring.parse(event.body)
   return fetch(requestURL, {
     method: 'POST',
     headers: {
@@ -15,10 +16,10 @@ exports.handler = function(event, context, callback) {
     body: JSON.stringify({
       urls: [
         {
-          url: event.queryStringParameters.assetUrl,
+          url: params.assetUrl,
           permissionRecord: {
             table: 'block',
-            id: event.queryStringParameters.blockId,
+            id: params.blockId,
           },
         },
       ],
