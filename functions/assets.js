@@ -3,7 +3,7 @@ exports.handler = function(event, context, callback) {
   const API_ENDPOINT = 'https://www.notion.so/api/v3'
   const NOTION_TOKEN = process.env.NOTION_TOKEN
   const requestURL = `${API_ENDPOINT}/getSignedFileUrls`
-  const assetRes = fetch(requestURL, {
+  return fetch(requestURL, {
     method: 'POST',
     headers: {
       cookie: `token_v2=${NOTION_TOKEN}`,
@@ -21,23 +21,23 @@ exports.handler = function(event, context, callback) {
       ],
     }),
   })
-    .then(() => ({
+    .then(response => ({
       statusCode: 200,
-      body: `Hello, ${name}! Your greeting has been sent to Slack 👋`,
+      body: response.json(),
     }))
     .catch(error => ({
       statusCode: 422,
       body: `Oops! Something went wrong. ${error}`,
     }))
 
-  if (assetRes.ok) {
-    return assetRes.json()
-  } else {
-    console.log('bad request', assetRes.status)
-    res.json({
-      status: 'error',
-      message: 'failed to load Notion asset',
-    })
-    throw new Error(getError(assetRes))
-  }
+  // if (assetRes.ok) {
+  // 	return assetRes.json()
+  // } else {
+  // 	console.log('bad request', assetRes.status)
+  // 	res.json({
+  // 		status: 'error',
+  // 		message: 'failed to load Notion asset'
+  // 	})
+  // 	throw new Error(getError(assetRes))
+  // }
 }
