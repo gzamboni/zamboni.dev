@@ -1,3 +1,6 @@
+import querystring from 'querystring'
+import fetch from 'node-fetch'
+
 exports.handler = function(event, context, callback) {
   // your server-side functionality
   const API_ENDPOINT = 'https://www.notion.so/api/v3'
