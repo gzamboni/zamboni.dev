@@ -189,7 +189,7 @@ const RenderPost = ({ post, redirect }) => {
               toRender.push(
                 <Comp
                   key={id}
-                  src={`/api/asset?assetUrl=${encodeURIComponent(
+                  src={`/.netlify/functions/assets?assetUrl=${encodeURIComponent(
                     format.display_source as any
                   )}&blockId=${id}`}
                   controls={!isImage}
