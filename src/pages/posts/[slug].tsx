@@ -185,7 +185,6 @@ const RenderPost = ({ post, redirect }) => {
 
               const isImage = type === 'image'
               const Comp = isImage ? 'img' : 'video'
-
               toRender.push(
                 <Comp
                   key={id}

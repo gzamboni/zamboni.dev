@@ -3,6 +3,7 @@ import Head from 'next/head'
 import ExtLink from './ext-link'
 import { useRouter } from 'next/router'
 import styles from '../styles/header.module.css'
+import DialogFlow from './dialogflow'
 
 const navItems: { label: string; page?: string; link?: string }[] = [
   { label: 'Home', page: '/' },
@@ -28,6 +29,7 @@ export default ({ titlePre = '' }) => {
         <meta name="twitter:site" content="@gzamboni" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content={ogImageUrl} />
+        <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
       </Head>
       <ul>
         {navItems.map(({ label, page, link }) => (
@@ -44,6 +46,7 @@ export default ({ titlePre = '' }) => {
           </li>
         ))}
       </ul>
+      <DialogFlow />
     </header>
   )
 }
