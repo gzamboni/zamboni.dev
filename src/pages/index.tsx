@@ -120,12 +120,12 @@ export default () => (
           <ExtLink href="https://revistapegn.globo.com/Startups/noticia/2019/05/100-startups-brasileiras-para-voce-ficar-de-olho.html">
             Época Negócios magazine
           </ExtLink>
-          . In addition, he worked for prominent companies such as{' '}
-          <ExtLink href="https://www.totvs.com">Datasul (agora Totvs)</ExtLink>,{' '}
+          . In addition, he worked for prominent companies such as Datasul (now{' '}
+          <ExtLink href="https://www.totvs.com">Totvs</ExtLink>),{' '}
           <ExtLink href="https://www.neogrid.com">NeoGrid</ExtLink> and{' '}
           <ExtLink href="http://www.contaazul.com">ContaAzul</ExtLink>. He
           currently helps computers assist people in their daily activities
-          through Artificial Intelligence on the{' '}
+          through Artificial Intelligence (like my bot here) on the{' '}
           <ExtLink href="https://www.totvslabs.com">TotvsLabs</ExtLink> team.
         </p>
       </div>
