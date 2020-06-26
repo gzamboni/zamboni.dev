@@ -1,5 +1,5 @@
-// import querystring from 'querystring';
-// import fetch from 'node-fetch';
+import querystring from 'querystring'
+import fetch from 'node-fetch'
 
 exports.handler = function(event, context, callback) {
   // your server-side functionality
