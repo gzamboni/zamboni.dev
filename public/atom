@@ -4,16 +4,16 @@
     <subtitle>Blog</subtitle>
     <link href="/atom" rel="self" type="application/rss+xml"/>
     <link href="/" />
-    <updated>2020-05-25T15:17:11.308Z</updated>
+    <updated>2020-06-26T23:48:20.375Z</updated>
     <id>My Notion Blog</id>
     <entry>
       <id>/posts/one-tb-mac</id>
       <title>feat: 1TB SSD on a MacBook Pro late 2013</title>
       <link href="/posts/one-tb-mac"/>
-      <updated>2020-05-19T03:00:00.655Z</updated>
+      <updated>2020-05-19T03:00:00.142Z</updated>
       <content type="xhtml">
         <div xmlns="http://www.w3.org/1999/xhtml">
-          
+          <p>How I miss the MacBook Pro Mid-2012 line and its removable RAM modules and lot&#x27;s of upgrades, right? Don&#x27;t you? </p>
           <p class="more">
             <a href="/posts/one-tb-mac">Read more</a>
           </p>
@@ -25,10 +25,10 @@
       <id>/posts/python-why</id>
       <title>Python: Where to learn it and why you should do it now</title>
       <link href="/posts/python-why"/>
-      <updated>2020-02-07T03:00:00.656Z</updated>
+      <updated>2020-02-07T03:00:00.144Z</updated>
       <content type="xhtml">
         <div xmlns="http://www.w3.org/1999/xhtml">
-          
+          <p>Several years in, Python remains &quot;the big kahuna&quot; in programming languages, as the IEEE Spectrum puts it, garnering the top spot on its annual list for 2019. Python consistently receives top billing in rankings mainly because it is one of the easiest programming languages to learn. This makes Python a good choice if you&#x27;re thinking about learning a coding language.</p>
           <p class="more">
             <a href="/posts/python-why">Read more</a>
           </p>
@@ -40,10 +40,10 @@
       <id>/posts/init</id>
       <title>&quot; &quot;.join([&quot;Hello&quot;, &quot;World&quot;])</title>
       <link href="/posts/init"/>
-      <updated>2020-02-05T03:00:00.657Z</updated>
+      <updated>2020-02-05T03:00:00.144Z</updated>
       <content type="xhtml">
         <div xmlns="http://www.w3.org/1999/xhtml">
-          
+          <p>I was procrastinating this for a long time, so it&#x27;s about time to do something. So...</p>
           <p class="more">
             <a href="/posts/init">Read more</a>
           </p>

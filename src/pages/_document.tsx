@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
+import DialogFlow from '../components/dialogflow'
 
 class MyDocument extends Document {
   render() {
@@ -8,6 +9,7 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+          <DialogFlow />
         </body>
       </Html>
     )
