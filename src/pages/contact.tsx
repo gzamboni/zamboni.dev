@@ -8,6 +8,7 @@ import GitHub from '../components/svgs/github'
 import Twitter from '../components/svgs/twitter'
 import Envelope from '../components/svgs/envelope'
 import LinkedIn from '../components/svgs/linkedin'
+import DialogFlow from '../components/dialogflow'
 
 const contacts = [
   {
@@ -58,6 +59,7 @@ export default function Contact() {
           })}
         </div>
       </div>
+      <DialogFlow intent="CONTACTS" />
     </>
   )
 }

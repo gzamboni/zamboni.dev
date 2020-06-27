@@ -1,16 +1,17 @@
 import '../styles/global.css'
 import App from 'next/app'
-import React from 'react'
+import React, { useEffect } from 'react'
 import TagManager from 'react-gtm-module'
+import Footer from '../components/footer'
 
-class MyApp extends App {
-  componentDidMount() {
+export default ({ Component, pageProps }) => {
+  useEffect(() => {
     TagManager.initialize({ gtmId: 'GTM-WMXJ59C' })
-  }
-  render() {
-    const { Component, pageProps } = this.props
-    return <Component {...pageProps} />
-  }
+  }, [])
+  return (
+    <>
+      <Component {...pageProps} />
+      <Footer />
+    </>
+  )
 }
-
-export default MyApp
