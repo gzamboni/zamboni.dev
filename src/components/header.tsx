@@ -3,7 +3,6 @@ import Head from 'next/head'
 import ExtLink from './ext-link'
 import { useRouter } from 'next/router'
 import styles from '../styles/header.module.css'
-import DialogFlow from './dialogflow'
 
 const navItems: { label: string; page?: string; link?: string }[] = [
   { label: 'Home', page: '/' },
@@ -46,7 +45,6 @@ const Header = ({ titlePre = '' }) => {
           </li>
         ))}
       </ul>
-      <DialogFlow />
     </header>
   )
 }
