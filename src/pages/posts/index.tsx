@@ -7,6 +7,7 @@ import sharedStyles from '../../styles/shared.module.css'
 import { getBlogLink, postIsReady, getDateStr } from '../../lib/blog-helpers'
 import { textBlock } from '../../lib/notion/renderers'
 import getBlogIndex from '../../lib/notion/getBlogIndex'
+import DialogFlow from '../../components/dialogflow'
 
 export async function unstable_getStaticProps() {
   const postsTable = await getBlogIndex()
@@ -35,7 +36,7 @@ export default ({ posts = [] }) => {
     <>
       <Header titlePre="Blog" />
       <div className={`${sharedStyles.layout} ${blogStyles.blogIndex}`}>
-        <h1>Posts</h1>
+        <h1>Blog Posts</h1>
         {posts.length === 0 && (
           <p className={blogStyles.noPosts}>There are no posts yet</p>
         )}
@@ -47,7 +48,9 @@ export default ({ posts = [] }) => {
                   <a>{post.Page}</a>
                 </Link>
               </h3>
-              <div className={blogStyles.posted}>{getDateStr(post.Date)}</div>
+              <div className={blogStyles.posted}>
+                {post.City}, {getDateStr(post.Date)}
+              </div>
               <p>
                 {(post.preview || []).map((block, idx) =>
                   textBlock(block, true, `${post.Slug}${idx}`)
@@ -57,6 +60,7 @@ export default ({ posts = [] }) => {
           )
         })}
       </div>
+      <DialogFlow intent="BLOG" />
     </>
   )
 }

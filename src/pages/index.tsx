@@ -8,6 +8,7 @@ import Envelope from '../components/svgs/envelope'
 import LinkedIn from '../components/svgs/linkedin'
 import sharedStyles from '../styles/shared.module.css'
 import contactStyles from '../styles/contact.module.css'
+import DialogFlow from '../components/dialogflow'
 
 const contacts = [
   {
@@ -31,6 +32,10 @@ const contacts = [
     link: 'mailto:g@zamboni.dev?subject=Hi!',
   },
 ]
+
+const dlgflow = {
+  intent: 'WELCOME',
+}
 
 export default () => (
   <>
@@ -81,5 +86,6 @@ export default () => (
         })}
       </div>
     </div>
+    <DialogFlow intent="WELCOME" />
   </>
 )

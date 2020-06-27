@@ -11,6 +11,7 @@ import getBlogIndex from '../../lib/notion/getBlogIndex'
 import getNotionUsers from '../../lib/notion/getNotionUsers'
 import { getBlogLink, getDateStr } from '../../lib/blog-helpers'
 import ExtLink from '../../components/ext-link'
+import DialogFlow from '../../components/dialogflow'
 
 // Get the data for each blog post
 export async function unstable_getStaticProps({ params: { slug } }) {
@@ -84,12 +85,9 @@ const RenderPost = ({ post, redirect }) => {
               href={`https://www.google.com.br/maps/search/${post.City}`}
             >
               {post.City}
-            </ExtLink>{' '}
-            · {getDateStr(post.Date)}
+            </ExtLink>
+            , {getDateStr(post.Date)}
           </div>
-        )}
-        {post.Authors.length > 0 && (
-          <div className="authors">By: {post.Authors.join(' ')}</div>
         )}
 
         <hr />
@@ -160,6 +158,7 @@ const RenderPost = ({ post, redirect }) => {
               </Heading>
             )
           }
+          console.log(properties)
 
           switch (type) {
             case 'page':
@@ -177,6 +176,7 @@ const RenderPost = ({ post, redirect }) => {
               const baseBlockWidth = 768
               const roundFactor = Math.pow(10, 2)
               // calculate percentages
+
               const width = block_width
                 ? `${Math.round(
                     (block_width / baseBlockWidth) * 100 * roundFactor
@@ -184,6 +184,10 @@ const RenderPost = ({ post, redirect }) => {
                 : '100%'
 
               const isImage = type === 'image'
+              const hasCaption = isImage && properties.caption
+              const caption = hasCaption
+                ? properties.caption[0][0]
+                : 'An image from Notion'
               const Comp = isImage ? 'img' : 'video'
               toRender.push(
                 <Comp
@@ -192,13 +196,17 @@ const RenderPost = ({ post, redirect }) => {
                     format.display_source as any
                   )}&blockId=${id}`}
                   controls={!isImage}
-                  alt={isImage ? 'An image from Notion' : undefined}
+                  alt={isImage ? caption : undefined}
                   loop={!isImage}
                   muted={!isImage}
                   autoPlay={!isImage}
                   style={{ width }}
                 />
               )
+              if (hasCaption)
+                toRender.push(
+                  <div className={blogStyles.caption}>{caption}</div>
+                )
               break
             }
             case 'header':
@@ -261,6 +269,7 @@ const RenderPost = ({ post, redirect }) => {
           return toRender
         })}
       </div>
+      <DialogFlow intent="BLOG" />
     </>
   )
 }

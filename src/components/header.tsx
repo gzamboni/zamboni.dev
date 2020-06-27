@@ -35,7 +35,14 @@ export default ({ titlePre = '' }) => {
           <li key={label}>
             {page ? (
               <Link href={page}>
-                <a className={pathname === page ? 'active' : undefined}>
+                <a
+                  className={
+                    pathname === page ||
+                    (page === '/posts' && pathname.startsWith(page))
+                      ? 'active'
+                      : undefined
+                  }
+                >
                   {label}
                 </a>
               </Link>
