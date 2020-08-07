@@ -12,6 +12,7 @@ import getNotionUsers from '../../lib/notion/getNotionUsers'
 import { getBlogLink, getDateStr } from '../../lib/blog-helpers'
 import ExtLink from '../../components/ext-link'
 import DialogFlow from '../../components/dialogflow'
+import YouTube from 'react-youtube'
 
 // Get the data for each blog post
 export async function unstable_getStaticProps({ params: { slug } }) {
@@ -189,12 +190,27 @@ const RenderPost = ({ post, redirect }) => {
                 ? properties.caption[0][0]
                 : 'An image from Notion'
               const Comp = isImage ? 'img' : 'video'
+              const sourceURL = isImage
+                ? `/.netlify/functions/assets?assetUrl=${encodeURIComponent(
+                    format.display_source as any
+                  )}&blockId=${id}`
+                : format.display_source
+              if (
+                format.display_source.indexOf('youtube') != -1 ||
+                format.display_source.indexOf('youtu.be') != -1
+              ) {
+                // TODO: extremely fragile
+                const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/
+                const match = format.display_source.match(regExp)
+                const youtubeId =
+                  match && match[7].length == 11 ? match[7] : false
+                toRender.push(<YouTube videoId={youtubeId} />)
+                break
+              }
               toRender.push(
                 <Comp
                   key={id}
-                  src={`/.netlify/functions/assets?assetUrl=${encodeURIComponent(
-                    format.display_source as any
-                  )}&blockId=${id}`}
+                  src={sourceURL}
                   controls={!isImage}
                   alt={isImage ? caption : undefined}
                   loop={!isImage}
