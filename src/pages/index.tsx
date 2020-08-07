@@ -63,8 +63,8 @@ export default () => (
           <ExtLink href="https://revistapegn.globo.com/Startups/noticia/2019/05/100-startups-brasileiras-para-voce-ficar-de-olho.html">
             Época Negócios magazine
           </ExtLink>
-          . In addition, he worked for prominent companies such as Datasul (now{' '}
-          <ExtLink href="https://www.totvs.com">Totvs</ExtLink>),{' '}
+          . In addition, I have been working for prominent companies such as
+          Datasul (now <ExtLink href="https://www.totvs.com">Totvs</ExtLink>),{' '}
           <ExtLink href="https://www.neogrid.com">NeoGrid</ExtLink> and{' '}
           <ExtLink href="http://www.contaazul.com">ContaAzul</ExtLink>. He
           currently helps computers assist people in their daily activities

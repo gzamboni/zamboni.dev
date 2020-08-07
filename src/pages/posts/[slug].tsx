@@ -14,6 +14,7 @@ import getNotionUsers from '../../lib/notion/getNotionUsers'
 import { getBlogLink, getDateStr } from '../../lib/blog-helpers'
 import ExtLink from '../../components/ext-link'
 import DialogFlow from '../../components/dialogflow'
+import YouTube from 'react-youtube'
 
 // Get the data for each blog post
 export async function getStaticProps({ params: { slug }, preview }) {
@@ -322,9 +323,7 @@ const RenderPost = ({ post, redirect, preview }) => {
               toRender.push(
                 <Comp
                   key={id}
-                  src={`/.netlify/functions/assets?assetUrl=${encodeURIComponent(
-                    format.display_source as any
-                  )}&blockId=${id}`}
+                  src={sourceURL}
                   controls={!isImage}
                   alt={isImage ? caption : undefined}
                   loop={!isImage}
