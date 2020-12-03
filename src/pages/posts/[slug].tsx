@@ -17,7 +17,11 @@ import DialogFlow from '../../components/dialogflow'
 import YouTube from 'react-youtube'
 
 // Get the data for each blog post
+<<<<<<< HEAD
 export async function getStaticProps({ params: { slug }, preview }) {
+=======
+export async function getStaticProps({ params: { slug } }) {
+>>>>>>> feat: upgrade and fixes
   // load the postsTable so that we can get the page's ID
   const postsTable = await getBlogIndex()
   const post = postsTable[slug]
@@ -236,8 +240,6 @@ const RenderPost = ({ post, redirect, preview }) => {
               </Heading>
             )
           }
-          console.log(properties)
-
           switch (type) {
             case 'page':
             case 'divider':

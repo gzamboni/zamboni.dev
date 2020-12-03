@@ -159,8 +159,8 @@ async function main() {
             args: {
               ...(existingBlockId
                 ? {
-                    after: existingBlockId,
-                  }
+                  after: existingBlockId,
+                }
                 : {}),
               id: collectionId,
             },

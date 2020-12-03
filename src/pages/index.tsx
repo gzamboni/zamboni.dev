@@ -36,7 +36,7 @@ const dlgflow = {
   intent: 'WELCOME',
 }
 
-export default () => (
+const Index = () => (
   <>
     <Header titlePre="Home" />
     <div className={sharedStyles.layout}>
@@ -88,3 +88,5 @@ export default () => (
     <DialogFlow intent="WELCOME" />
   </>
 )
+
+export default Index

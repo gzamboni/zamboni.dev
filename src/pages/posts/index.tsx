@@ -17,7 +17,6 @@ import DialogFlow from '../../components/dialogflow'
 
 export async function getStaticProps({ preview }) {
   const postsTable = await getBlogIndex()
-
   const posts: any[] = Object.keys(postsTable)
     .map((slug) => {
       const post = postsTable[slug]
@@ -44,7 +43,11 @@ export async function getStaticProps({ preview }) {
   }
 }
 
+<<<<<<< HEAD
 const Index = ({ posts = [], preview }) => {
+=======
+const BlogIndex = ({ posts = [] }) => {
+>>>>>>> feat: upgrade and fixes
   return (
     <>
       <Header titlePre="Blog" />
@@ -94,4 +97,8 @@ const Index = ({ posts = [], preview }) => {
   )
 }
 
+<<<<<<< HEAD
 export default Index
+=======
+export default BlogIndex
+>>>>>>> feat: upgrade and fixes
