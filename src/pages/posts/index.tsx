@@ -9,9 +9,8 @@ import { textBlock } from '../../lib/notion/renderers'
 import getBlogIndex from '../../lib/notion/getBlogIndex'
 import DialogFlow from '../../components/dialogflow'
 
-export async function unstable_getStaticProps() {
+export async function getStaticProps() {
   const postsTable = await getBlogIndex()
-
   const posts: any[] = Object.keys(postsTable)
     .map(slug => {
       const post = postsTable[slug]
@@ -31,7 +30,7 @@ export async function unstable_getStaticProps() {
   }
 }
 
-export default ({ posts = [] }) => {
+const BlogIndex = ({ posts = [] }) => {
   return (
     <>
       <Header titlePre="Blog" />
@@ -64,3 +63,5 @@ export default ({ posts = [] }) => {
     </>
   )
 }
+
+export default BlogIndex

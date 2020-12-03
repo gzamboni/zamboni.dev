@@ -33,7 +33,7 @@ const contacts = [
   },
 ]
 
-export default () => (
+const ContactPage = () => (
   <>
     <Header titlePre="Contact" />
     <div className={sharedStyles.layout}>
@@ -61,3 +61,5 @@ export default () => (
     <DialogFlow intent="CONTACTS" />
   </>
 )
+
+export default ContactPage

@@ -4,7 +4,7 @@ import React, { useEffect } from 'react'
 import TagManager from 'react-gtm-module'
 import Footer from '../components/footer'
 
-export default ({ Component, pageProps }) => {
+const AppPage = ({ Component, pageProps }) => {
   useEffect(() => {
     TagManager.initialize({ gtmId: 'GTM-WMXJ59C' })
   }, [])
@@ -15,3 +15,5 @@ export default ({ Component, pageProps }) => {
     </>
   )
 }
+
+export default AppPage

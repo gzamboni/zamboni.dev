@@ -15,7 +15,7 @@ import DialogFlow from '../../components/dialogflow'
 import YouTube from 'react-youtube'
 
 // Get the data for each blog post
-export async function unstable_getStaticProps({ params: { slug } }) {
+export async function getStaticProps({ params: { slug } }) {
   // load the postsTable so that we can get the page's ID
   const postsTable = await getBlogIndex()
   const post = postsTable[slug]
@@ -44,9 +44,12 @@ export async function unstable_getStaticProps({ params: { slug } }) {
 }
 
 // Return our list of blog posts to prerender
-export async function unstable_getStaticPaths() {
+export async function getStaticPaths() {
   const postsTable = await getBlogIndex()
-  return Object.keys(postsTable).map(slug => getBlogLink(slug))
+  return {
+    paths: Object.keys(postsTable).map(slug => getBlogLink(slug)),
+    fallback: false,
+  }
 }
 
 const listTypes = new Set(['bulleted_list', 'numbered_list'])
@@ -159,8 +162,6 @@ const RenderPost = ({ post, redirect }) => {
               </Heading>
             )
           }
-          console.log(properties)
-
           switch (type) {
             case 'page':
             case 'divider':
