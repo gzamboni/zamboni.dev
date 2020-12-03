@@ -4,10 +4,16 @@
   "scripts": {
     "dev": "next dev",
     "start": "next start",
+<<<<<<< HEAD
     "build": "next build && node .next/server/scripts/build-rss.js",
     "format": "prettier --write \"**/*.{js,jsx,json,ts,tsx,md,mdx,css,html,yml,yaml,scss,sass}\" --ignore-path .gitignore",
     "lint-staged": "lint-staged",
     "export": "next export"
+=======
+    "build": "next build",
+    "export": "next export",
+    "format": "prettier --write \"**/*.{js,jsx,json,ts,tsx,md,mdx,css,html,yml,yaml,scss,sass}\" --ignore-path .gitignore"
+>>>>>>> chore: merge master
   },
   "husky": {
     "hooks": {
