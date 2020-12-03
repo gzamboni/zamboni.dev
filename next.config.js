@@ -42,7 +42,7 @@ if (!BLOG_INDEX_ID) {
 }
 
 module.exports = {
-  target: 'experimental-serverless-trace',
+  target: 'serverless',
 
   webpack(cfg, { dev, isServer }) {
     // only compile build-rss in production server build
@@ -56,7 +56,7 @@ module.exports = {
       const entries = {
         ...(await originalEntry()),
       }
-      entries['./scripts/build-rss.js'] = './src/lib/build-rss.ts'
+      // entries['./scripts/build-rss.js'] = './src/lib/build-rss.ts'
       return entries
     }
     return cfg
