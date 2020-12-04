@@ -79,7 +79,7 @@ const RenderPost = ({ post, redirect }) => {
 
   return (
     <>
-      <Header titlePre={post.Page} />
+      <Header titlePre={post.Page} description={post.Description} />
       <div className={blogStyles.post}>
         <h1>{post.Page || ''}</h1>
         <br />
