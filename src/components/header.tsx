@@ -12,17 +12,18 @@ const navItems: { label: string; page?: string; link?: string }[] = [
 
 const ogImageUrl = 'https://zamboni.dev/og-image.png'
 
-const Header = ({ titlePre = '' }) => {
+export default ({
+  titlePre = '',
+  description = 'This is my personal blog/site to shared my thoughts and things about IA, Machine Learning, SRE, DevOps',
+}) => {
   const { pathname } = useRouter()
 
   return (
     <header className={styles.header}>
       <Head>
         <title>{titlePre ? `${titlePre} |` : ''} Zamboni.Dev</title>
-        <meta
-          name="description"
-          content="This is my personal blog/site to shared my thoughts and things about IA, Machine Learning, SRE, DevOps"
-        />
+        <meta name="description" content={description} />
+        <meta property="og:description" content={description}></meta>
         <meta name="og:title" content="Zamboni.dev" />
         <meta property="og:image" content={ogImageUrl} />
         <meta name="twitter:site" content="@gzamboni" />
@@ -38,7 +39,7 @@ const Header = ({ titlePre = '' }) => {
                 <a
                   className={
                     pathname === page ||
-                    (page === '/posts' && pathname.startsWith(page))
+                      (page === '/posts' && pathname.startsWith(page))
                       ? 'active'
                       : undefined
                   }
@@ -55,5 +56,3 @@ const Header = ({ titlePre = '' }) => {
     </header>
   )
 }
-
-export default Header
