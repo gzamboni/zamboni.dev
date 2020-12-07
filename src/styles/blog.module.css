@@ -42,7 +42,7 @@
 .post :global(iframe),
 .post :global(img) {
   margin: 2rem auto;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
   padding: 1rem;
   max-width: 100%;
   display: block;
@@ -64,6 +64,13 @@
 
 .post :global(a + p) {
   margin-top: 0;
+}
+
+.post li {
+  color: #555;
+  font-weight: 400;
+  font-size: 0.94rem;
+  line-height: 1.7;
 }
 
 .caption {

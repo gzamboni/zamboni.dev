@@ -1,4 +1,5 @@
 import '../styles/global.css'
+import '../styles/primsjs.css'
 import App from 'next/app'
 import React, { useEffect } from 'react'
 import TagManager from 'react-gtm-module'
