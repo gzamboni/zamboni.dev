@@ -17,11 +17,7 @@ import DialogFlow from '../../components/dialogflow'
 import YouTube from 'react-youtube'
 
 // Get the data for each blog post
-<<<<<<< HEAD
 export async function getStaticProps({ params: { slug }, preview }) {
-=======
-export async function getStaticProps({ params: { slug } }) {
->>>>>>> feat: upgrade and fixes
   // load the postsTable so that we can get the page's ID
   const postsTable = await getBlogIndex()
   const post = postsTable[slug]
@@ -111,7 +107,7 @@ const RenderPost = ({ post, redirect, preview }) => {
     // client navigation
     if (post && post.hasTweet) {
       if ((window as any)?.twttr?.widgets) {
-        ; (window as any).twttr.widgets.load()
+        ;(window as any).twttr.widgets.load()
       } else if (!document.querySelector(`script[src="${twitterSrc}"]`)) {
         const script = document.createElement('script')
         script.async = true
@@ -216,12 +212,12 @@ const RenderPost = ({ post, redirect, preview }) => {
                       item.children,
                       item.nested.length > 0
                         ? React.createElement(
-                          components.ul || 'ul',
-                          { key: item + 'sub-list' },
-                          item.nested.map((nestedId) =>
-                            createEl(listMap[nestedId])
+                            components.ul || 'ul',
+                            { key: item + 'sub-list' },
+                            item.nested.map((nestedId) =>
+                              createEl(listMap[nestedId])
+                            )
                           )
-                        )
                         : null
                     )
                   return createEl(listMap[itemId])
@@ -250,7 +246,8 @@ const RenderPost = ({ post, redirect, preview }) => {
               }
               break
             case 'image':
-            case 'video': {
+            case 'video':
+            case 'embed': {
               const { format = {} } = value
               const {
                 block_width,
@@ -261,36 +258,32 @@ const RenderPost = ({ post, redirect, preview }) => {
               const baseBlockWidth = 768
               const roundFactor = Math.pow(10, 2)
               // calculate percentages
-
               const width = block_width
-                ? `${Math.round(
-                  (block_width / baseBlockWidth) * 100 * roundFactor
-                ) / roundFactor
-                }%`
+                ? `${
+                    Math.round(
+                      (block_width / baseBlockWidth) * 100 * roundFactor
+                    ) / roundFactor
+                  }%`
                 : block_height || '100%'
 
               const isImage = type === 'image'
-              const hasCaption = isImage && properties.caption
-              const caption = hasCaption
-                ? properties.caption[0][0]
-                : 'An image from Notion'
               const Comp = isImage ? 'img' : 'video'
               const useWrapper = block_aspect_ratio && !block_height
               const childStyle: CSSProperties = useWrapper
                 ? {
-                  width: '100%',
-                  height: '100%',
-                  border: 'none',
-                  position: 'absolute',
-                  top: 0,
-                }
+                    width: '100%',
+                    height: '100%',
+                    border: 'none',
+                    position: 'absolute',
+                    top: 0,
+                  }
                 : {
-                  width,
-                  border: 'none',
-                  height: block_height,
-                  display: 'block',
-                  maxWidth: '100%',
-                }
+                    width,
+                    border: 'none',
+                    height: block_height,
+                    display: 'block',
+                    maxWidth: '100%',
+                  }
 
               let child = null
 
@@ -306,12 +299,15 @@ const RenderPost = ({ post, redirect, preview }) => {
                 )
               } else {
                 // notion resource
+                const sourceURL = isImage
+                  ? `/.netlify/functions/assets?assetUrl=${encodeURIComponent(
+                      format.display_source as any
+                    )}&blockId=${id}`
+                  : format.display_source
                 child = (
                   <Comp
                     key={!useWrapper ? id : undefined}
-                    src={`/api/asset?assetUrl=${encodeURIComponent(
-                      display_source as any
-                    )}&blockId=${id}`}
+                    src={sourceURL}
                     controls={!isImage}
                     alt={`An ${isImage ? 'image' : 'video'} from Notion`}
                     loop={!isImage}
@@ -323,21 +319,21 @@ const RenderPost = ({ post, redirect, preview }) => {
               }
 
               toRender.push(
-                <Comp
-                  key={id}
-                  src={sourceURL}
-                  controls={!isImage}
-                  alt={isImage ? caption : undefined}
-                  loop={!isImage}
-                  muted={!isImage}
-                  autoPlay={!isImage}
-                  style={{ width }}
-                />
-              )
-              if (hasCaption)
-                toRender.push(
-                  <div className={blogStyles.caption}>{caption}</div>
+                useWrapper ? (
+                  <div
+                    style={{
+                      paddingTop: `${Math.round(block_aspect_ratio * 100)}%`,
+                      position: 'relative',
+                    }}
+                    className="asset-wrapper"
+                    key={id}
+                  >
+                    {child}
+                  </div>
+                ) : (
+                  child
                 )
+              )
               break
             }
             case 'header':
