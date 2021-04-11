@@ -20,6 +20,9 @@ export default async function getBlogIndex(previews = true) {
   }
 
   if (!postsTable) {
+    if (!BLOG_INDEX_ID) {
+      throw new Error('BLOG_INDEX_ID is not set in env')
+    }
     try {
       const data = await rpc('loadPageChunk', {
         pageId: BLOG_INDEX_ID,
@@ -29,6 +32,7 @@ export default async function getBlogIndex(previews = true) {
         verticalColumns: false,
       })
 
+      console.log(data)
       // Parse table with posts
       const tableBlock = values(data.recordMap.block).find(
         (block: any) => block.value.type === 'collection_view'
