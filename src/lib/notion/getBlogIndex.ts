@@ -37,7 +37,8 @@ export default async function getBlogIndex(previews = true) {
       postsTable = await getTableData(tableBlock, true)
     } catch (err) {
       console.warn(
-        `Failed to load Notion posts, have you run the create-table script?`
+        `Failed to load Notion posts, have you run the create-table script?`,
+        err
       )
       return {}
     }
