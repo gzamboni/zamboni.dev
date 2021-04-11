@@ -21,6 +21,10 @@ export async function getStaticProps({ preview }) {
   const posts: any[] = Object.keys(postsTable)
     .map((slug) => {
       const post = postsTable[slug]
+      post.Authors = post.Authors || []
+      for (const author of post.Authors) {
+        authorsToGet.add(author)
+      }
       // remove draft posts in production
       if (!preview && !postIsPublished(post)) {
         return null
@@ -78,7 +82,8 @@ const Index = ({ posts = [], preview }) => {
                 </span>
               </h3>
               <div className={blogStyles.posted}>
-                {post.City}, {getDateStr(post.Date)}
+                {post.City}, {getDateStr(post.Date)} - by{' '}
+                {post.Authors.join(' ')}
               </div>
               <p>
                 {(post.preview || []).map((block, idx) =>
