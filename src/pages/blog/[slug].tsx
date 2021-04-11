@@ -80,7 +80,7 @@ export async function getStaticPaths() {
     paths: Object.keys(postsTable)
       .filter((post) => postsTable[post].Published === 'Yes')
       .map((slug) => getBlogLink(slug)),
-    fallback: false,
+    fallback: true,
   }
 }
 
