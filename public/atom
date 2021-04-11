@@ -4,48 +4,108 @@
     <subtitle>Blog</subtitle>
     <link href="/atom" rel="self" type="application/rss+xml"/>
     <link href="/" />
-    <updated>2020-06-26T23:48:20.375Z</updated>
+    <updated>2021-04-11T18:37:51.029Z</updated>
     <id>My Notion Blog</id>
     <entry>
-      <id>/posts/one-tb-mac</id>
+      <id>/blog/advent_of_code_2020_day4</id>
+      <title>Advent of Code 2020 - Day 4</title>
+      <link href="/blog/advent_of_code_2020_day4"/>
+      <updated>2020-12-04T03:00:00.193Z</updated>
+      <content type="xhtml">
+        <div xmlns="http://www.w3.org/1999/xhtml">
+          
+          <p class="more">
+            <a href="/blog/advent_of_code_2020_day4">Read more</a>
+          </p>
+        </div>
+      </content>
+      <author><name>Giovani Zamboni</name></author>
+    </entry>
+    <entry>
+      <id>/blog/advent_of_code_2020_day3</id>
+      <title>Advent of Code 2020 - Day 3</title>
+      <link href="/blog/advent_of_code_2020_day3"/>
+      <updated>2020-12-03T03:00:00.193Z</updated>
+      <content type="xhtml">
+        <div xmlns="http://www.w3.org/1999/xhtml">
+          
+          <p class="more">
+            <a href="/blog/advent_of_code_2020_day3">Read more</a>
+          </p>
+        </div>
+      </content>
+      <author><name>Giovani Zamboni</name></author>
+    </entry>
+    <entry>
+      <id>/blog/advent_of_code_2020_day2</id>
+      <title>Advent of Code 2020 - Day 2</title>
+      <link href="/blog/advent_of_code_2020_day2"/>
+      <updated>2020-12-02T03:00:00.193Z</updated>
+      <content type="xhtml">
+        <div xmlns="http://www.w3.org/1999/xhtml">
+          
+          <p class="more">
+            <a href="/blog/advent_of_code_2020_day2">Read more</a>
+          </p>
+        </div>
+      </content>
+      <author><name>Giovani Zamboni</name></author>
+    </entry>
+    <entry>
+      <id>/blog/advent_of_code_2020_day1</id>
+      <title>Advent of Code 2020 - Day 1</title>
+      <link href="/blog/advent_of_code_2020_day1"/>
+      <updated>2020-12-01T03:00:00.193Z</updated>
+      <content type="xhtml">
+        <div xmlns="http://www.w3.org/1999/xhtml">
+          
+          <p class="more">
+            <a href="/blog/advent_of_code_2020_day1">Read more</a>
+          </p>
+        </div>
+      </content>
+      <author><name>Giovani Zamboni</name></author>
+    </entry>
+    <entry>
+      <id>/blog/one-tb-mac</id>
       <title>feat: 1TB SSD on a MacBook Pro late 2013</title>
-      <link href="/posts/one-tb-mac"/>
-      <updated>2020-05-19T03:00:00.142Z</updated>
+      <link href="/blog/one-tb-mac"/>
+      <updated>2020-05-19T03:00:00.193Z</updated>
       <content type="xhtml">
         <div xmlns="http://www.w3.org/1999/xhtml">
           <p>How I miss the MacBook Pro Mid-2012 line and its removable RAM modules and lot&#x27;s of upgrades, right? Don&#x27;t you? </p>
           <p class="more">
-            <a href="/posts/one-tb-mac">Read more</a>
+            <a href="/blog/one-tb-mac">Read more</a>
           </p>
         </div>
       </content>
       <author><name>Giovani Zamboni</name></author>
     </entry>
     <entry>
-      <id>/posts/python-why</id>
+      <id>/blog/python-why</id>
       <title>Python: Where to learn it and why you should do it now</title>
-      <link href="/posts/python-why"/>
-      <updated>2020-02-07T03:00:00.144Z</updated>
+      <link href="/blog/python-why"/>
+      <updated>2020-02-07T03:00:00.194Z</updated>
       <content type="xhtml">
         <div xmlns="http://www.w3.org/1999/xhtml">
           <p>Several years in, Python remains &quot;the big kahuna&quot; in programming languages, as the IEEE Spectrum puts it, garnering the top spot on its annual list for 2019. Python consistently receives top billing in rankings mainly because it is one of the easiest programming languages to learn. This makes Python a good choice if you&#x27;re thinking about learning a coding language.</p>
           <p class="more">
-            <a href="/posts/python-why">Read more</a>
+            <a href="/blog/python-why">Read more</a>
           </p>
         </div>
       </content>
       <author><name>Giovani Zamboni</name></author>
     </entry>
     <entry>
-      <id>/posts/init</id>
+      <id>/blog/init</id>
       <title>&quot; &quot;.join([&quot;Hello&quot;, &quot;World&quot;])</title>
-      <link href="/posts/init"/>
-      <updated>2020-02-05T03:00:00.144Z</updated>
+      <link href="/blog/init"/>
+      <updated>2020-02-05T03:00:00.194Z</updated>
       <content type="xhtml">
         <div xmlns="http://www.w3.org/1999/xhtml">
-          <p>I was procrastinating this for a long time, so it&#x27;s about time to do something. So...</p>
+          
           <p class="more">
-            <a href="/posts/init">Read more</a>
+            <a href="/blog/init">Read more</a>
           </p>
         </div>
       </content>
