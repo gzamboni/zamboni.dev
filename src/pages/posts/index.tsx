@@ -25,10 +25,6 @@ export async function getStaticProps({ preview }) {
       if (!preview && !postIsPublished(post)) {
         return null
       }
-      post.Authors = post.Authors || []
-      for (const author of post.Authors) {
-        authorsToGet.add(author)
-      }
       return post
     })
     .filter(Boolean)

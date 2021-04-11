@@ -258,6 +258,7 @@ const RenderPost = ({ post, redirect, preview }) => {
               const baseBlockWidth = 768
               const roundFactor = Math.pow(10, 2)
               // calculate percentages
+
               const width = block_width
                 ? `${
                     Math.round(
@@ -267,73 +268,44 @@ const RenderPost = ({ post, redirect, preview }) => {
                 : block_height || '100%'
 
               const isImage = type === 'image'
+              const hasCaption = isImage && properties.caption
+              const caption = hasCaption
+                ? properties.caption[0][0]
+                : 'An image from Notion'
               const Comp = isImage ? 'img' : 'video'
-              const useWrapper = block_aspect_ratio && !block_height
-              const childStyle: CSSProperties = useWrapper
-                ? {
-                    width: '100%',
-                    height: '100%',
-                    border: 'none',
-                    position: 'absolute',
-                    top: 0,
-                  }
-                : {
-                    width,
-                    border: 'none',
-                    height: block_height,
-                    display: 'block',
-                    maxWidth: '100%',
-                  }
-
-              let child = null
-
-              if (!isImage && !value.file_ids) {
-                // external resource use iframe
-                child = (
-                  <iframe
-                    style={childStyle}
-                    src={display_source}
-                    key={!useWrapper ? id : undefined}
-                    className={!useWrapper ? 'asset-wrapper' : undefined}
-                  />
-                )
-              } else {
-                // notion resource
-                const sourceURL = isImage
-                  ? `/.netlify/functions/assets?assetUrl=${encodeURIComponent(
-                      format.display_source as any
-                    )}&blockId=${id}`
-                  : format.display_source
-                child = (
-                  <Comp
-                    key={!useWrapper ? id : undefined}
-                    src={sourceURL}
-                    controls={!isImage}
-                    alt={`An ${isImage ? 'image' : 'video'} from Notion`}
-                    loop={!isImage}
-                    muted={!isImage}
-                    autoPlay={!isImage}
-                    style={childStyle}
-                  />
-                )
+              const sourceURL = isImage
+                ? `/.netlify/functions/assets?assetUrl=${encodeURIComponent(
+                    format.display_source as any
+                  )}&blockId=${id}`
+                : format.display_source
+              if (
+                format.display_source.indexOf('youtube') != -1 ||
+                format.display_source.indexOf('youtu.be') != -1
+              ) {
+                // TODO: extremely fragile
+                const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/
+                const match = format.display_source.match(regExp)
+                const youtubeId =
+                  match && match[7].length == 11 ? match[7] : false
+                toRender.push(<YouTube videoId={youtubeId} />)
+                break
               }
-
               toRender.push(
-                useWrapper ? (
-                  <div
-                    style={{
-                      paddingTop: `${Math.round(block_aspect_ratio * 100)}%`,
-                      position: 'relative',
-                    }}
-                    className="asset-wrapper"
-                    key={id}
-                  >
-                    {child}
-                  </div>
-                ) : (
-                  child
-                )
+                <Comp
+                  key={id}
+                  src={sourceURL}
+                  controls={!isImage}
+                  alt={isImage ? caption : undefined}
+                  loop={!isImage}
+                  muted={!isImage}
+                  autoPlay={!isImage}
+                  style={{ width }}
+                />
               )
+              if (hasCaption)
+                toRender.push(
+                  <div className={blogStyles.caption}>{caption}</div>
+                )
               break
             }
             case 'header':
